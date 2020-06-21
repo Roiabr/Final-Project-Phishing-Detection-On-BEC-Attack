@@ -1,4 +1,3 @@
-
 import streamlit as st
 import numpy as np
 
@@ -13,21 +12,20 @@ from sklearn.ensemble import RandomForestClassifier
 
 from sklearn.metrics import accuracy_score
 
-st.title('')
-
-
+st.title('Final Project - Phishing Detection On BEC Attack')
 
 dataset_name = st.sidebar.selectbox(
     'Select Dataset',
-    ('Iris', 'Wine')
+    ('Iris', 'Wine', 'Header', 'Body')
 )
 
 st.write(f"## {dataset_name} Dataset")
 
 classifier_name = st.sidebar.selectbox(
     'Select classifier',
-    ('KNN', 'Random Forest')
+    ('KNN', 'SVM')
 )
+
 
 def get_dataset(name):
     data = None
@@ -35,19 +33,27 @@ def get_dataset(name):
         data = datasets.load_iris()
     elif name == 'Wine':
         data = datasets.load_digits()
+    elif name == 'Header':
+        data = np.loadtxt('C:/Users/owner/Desktop/dataset.txt')
     else:
-        data = datasets.load_breast_cancer()
+        data = np.loadtxt('C:/Users/owner/Desktop/dataset.txt')
+
     X = data.data
     y = data.target
     return X, y
+
 
 X, y = get_dataset(dataset_name)
 st.write('Shape of dataset:', X.shape)
 st.write('number of classes:', len(np.unique(y)))
 
+
 def add_parameter_ui(clf_name):
     params = dict()
-    if clf_name == 'KNN':
+    if clf_name == 'SVM':
+        C = st.sidebar.slider('C', 0.01, 10.0)
+        params['C'] = C
+    elif clf_name == 'KNN':
         K = st.sidebar.slider('K', 1, 15)
         params['K'] = K
     else:
@@ -57,7 +63,9 @@ def add_parameter_ui(clf_name):
         params['n_estimators'] = n_estimators
     return params
 
+
 params = add_parameter_ui(classifier_name)
+
 
 def get_classifier(clf_name, params):
     clf = None
@@ -67,8 +75,9 @@ def get_classifier(clf_name, params):
         clf = KNeighborsClassifier(n_neighbors=params['K'])
     else:
         clf = clf = RandomForestClassifier(n_estimators=params['n_estimators'],
-            max_depth=params['max_depth'], random_state=1234)
+                                           max_depth=params['max_depth'], random_state=1234)
     return clf
+
 
 clf = get_classifier(classifier_name, params)
 #### CLASSIFICATION ####
@@ -93,8 +102,8 @@ x2 = X_projected[:, 1]
 
 fig = plt.figure()
 plt.scatter(x1, x2,
-        c=y, alpha=0.8,
-        cmap='viridis')
+            c=y, alpha=0.8,
+            cmap='viridis')
 
 plt.xlabel('Principal Component 1')
 plt.ylabel('Principal Component 2')
