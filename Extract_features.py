@@ -10,7 +10,7 @@ def save_output(filename, csv_content):
 
 
 def get_email_ham(FILENAME):
-    for subdir, dirs, files in os.walk(r'Enron-ham'):
+    for subdir, dirs, files in os.walk('Dataset\Enron - dataset\Enron-ham'):
         for filename in files:
             filepath = subdir + os.sep + filename
             csv_content = parser_email(filepath)
