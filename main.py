@@ -8,7 +8,7 @@ import Extract_features
 import pandas as pd
 
 import WordsToVector
-import nlp
+
 
 
 if __name__ == '__main__':
