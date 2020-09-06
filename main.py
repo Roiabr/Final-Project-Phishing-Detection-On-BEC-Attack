@@ -59,7 +59,7 @@ if __name__ == '__main__':
     print(Random_Forest.random_forest(train_vectors, y_train, test_vectors, y_test))
     print(DecisionTreeClassifier.decisionTreeClassifier(train_vectors, y_train, test_vectors, y_test))
     print(Adaboost.adaBoost(train_vectors, y_train, test_vectors, y_test))
-
+    acc, model1 = Random_Forest.random_forest(train_vectors, y_train, test_vectors, y_test)
     model = RandomForestClassifier()
 
     model.fit(train_vectors2, y_train)
@@ -69,11 +69,17 @@ if __name__ == '__main__':
     print(classification_report(y_test, y_pred))
     print(accuracy_score(y_test, y_pred))
 
-    # check every email in the data and if spam move to new data for body classifcaion
-    BodyDataFrame = pd.DataFrame(columns=['email_header', 'Body', 'label'])
-    for i in range(train_vectors.shape[0]):
-        if model.predict(train_vectors[i]) == ['0']:
-            df2 = pd.DataFrame([data.iloc[i]], columns=['Body', 'label'])
-            print(df2)
 
-    print(BodyDataFrame)
+    print(train_vectors.shape[0] + test_vectors.shape[0])
+    print(data.shape)
+    count = 0
+    # check every email in the data and if spam move to new data for body classification
+    #BodyDataFrame = pd.DataFrame(columns=['email_header', 'Body', 'label'])
+    for i in range(train_vectors.shape[0]):
+        if model1.predict(train_vectors[i]) == ['1']:
+            count += 1
+    for i in range(test_vectors.shape[0]):
+        if model1.predict(test_vectors[i]) == ['1']:
+            count += 1
+    print(count)
+    # print(BodyDataFrame)

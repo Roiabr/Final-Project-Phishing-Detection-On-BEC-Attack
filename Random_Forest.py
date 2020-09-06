@@ -8,4 +8,4 @@ def random_forest(X_train, y_train, X_test, y_test):
     # Train the model on training data
     forest_clf.fit(X_train, y_train)
     acc = forest_clf.score(X_test, y_test) * 100
-    return acc
+    return acc, forest_clf
