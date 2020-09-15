@@ -61,7 +61,7 @@ if __name__ == '__main__':
         if suspect == ['1']:
             suspect_fraud.append(x)
 
-    print(dc.score(CountTest, y_test))
+
     # Move to the Body Classification
     clean_suspect_fraud = []
 
