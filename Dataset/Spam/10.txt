@@ -1,0 +1,10 @@
+Message-ID: <30724696.1075856059158.JavaMail.evans@thyme>
+Date: Tue, 3 Oct 2000 09:59:00 -0700 (PDT)
+From: Richard@enron.com
+Cc: ben_asd@gmail.com
+To: dan_gil@enron.com
+Subject: Payment
+
+We need to make a payment of 9,820 AUD today. What details do you need to get this done ?
+Regards,
+Richard

@@ -1,0 +1,129 @@
+From r  Tue Apr 24 05:05:03 2007
+Return-Path: <noreply@en.facebox.com>
+X-Sieve: CMU Sieve 2.3
+From: aditya monu <noreply@en.facebox.com>
+To: <R@M>
+Subject: Invitation from aditya monu
+MIME-Version: 1.0
+X-mailer: en.facebox.com
+Date: Tue, 24 Apr 2007 11:04:52 +0200 (CEST)
+Status: O
+
+This is a multi-part message in MIME format.
+
+--incrowd_6506e2e6636163656626f7892e636f26d05b3743
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+
+Hello,
+
+aditya monu (eagle09) is building his online friends network on :
+http://en.facebox.com
+
+
+Accept this friendship request and join Facebox!
+http://en.facebox.com/go/register/id=1531345088&i=t71
+
+Create a personal Facebox web page with
+- Blog
+- Photo album
+- Guestbook
+- Friends network
+- Videos- Music- And much more...
+
+----------------------------------------------------------------
+Are you already a member? Add aditya monu as a friend:
+http://en.facebox.com/eagle09/friends/view=add
+
+Don't know who aditya monu is? Visit his Facebox profile page.:
+http://en.facebox.com/eagle09
+
+Do you not wish to receive these e-mails? Block your e-mail address:
+http://en.facebox.com/go/nomails/invite/email=-cmFkZXZAdW1pY2guZWR1&code=11060960&i=t7&id=1531345088
+----------------------------------------------------------------
+--incrowd_6506e2e6636163656626f7892e636f26d05b3743
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+	<title>Invitation from aditya monu</title>
+</head>
+<body>
+<table width="500" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td background="http://static.facebox.com//s/i/email/email_header_invitation.png" style="height: 32px; padding: 30px 0 20px 68px; background-color: #000; font-weight: bold; color: #fff; font-size: 24px; letter-spacing: 1px; vertical-align: top;">
+			<span style="font-family: trebuchet ms, sans-serif;">Facebox</span>
+		</td>
+	</tr>
+	<tr>
+		<td style="padding: 4px 18px 4px 0; background: #E6E6E6; border-top: 3px solid #e00; text-align: right; font-family: Verdana, sans-serif; color: #777; font-size: 12px;">
+			Tuesday 24 April at 11:04
+		</td>
+	</tr>
+	<tr>
+		<td style="padding: 10px 18px 16px 18px; font-family: 'Trebuchet MS', Verdana, sans-serif; color: #f00; font-size: 22px;">
+			<span style="font-family: trebuchet ms, sans-serif;">Invitation from aditya monu</span>
+		</td>
+	</tr>
+	<tr>
+		<td style="padding: 0 18px 20px 18px; font-family: Verdana, sans-serif; color: #333; font-size: 12px;">
+			
+
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="25%" align="left" valign="top">
+			<div style="width: 80px; text-align: center; padding: 4px; border: 1px solid #bbb;">
+				<a href="http://en.facebox.com/go/register/id=1531345088&i=h71"><img src="http://en.facebox.com/go/mainphoto/eagle09.jpg" alt="Profile picture of eagle09" title="Profile picture of eagle09" border="0"></a><br>
+				<span style="font-family: Verdana, sans-serif; color: #333; font-size: 10px;">eagle09</span>
+				<img src="http://en.facebox.com/go/mailimage/1531345088/i1/header.gif" alt="" />
+			</div>
+		</td>
+		<td width="75%" align="left" valign="top" style="font-family: Verdana, sans-serif; color: #000; font-size: 12px;">
+Hello,<br>
+<br>
+aditya monu (eagle09) is building his online friends network on <a href="http://en.facebox.com">http://en.facebox.com</a><br>
+<br>
+<span style="font-family: trebuchet ms, sans-serif; font-size: 18px; font-weight: bold;"><a style="color: #24B417;" href="http://en.facebox.com/go/register/id=1531345088&i=h72">Accept this invitation</a></span>
+<br><br>
+
+<b>And join Facebox!</b><br>
+Create a personal Facebox web page with
+<ul>
+	<li>Blog</li>
+	<li>Photo album</li>
+	<li>Guestbook</li>
+	<li>Friends network</li>
+	<li>Videos</li>	<li>Music</li>	<li>And much more...</li>
+</ul>
+
+		</td>
+	</tr>
+</table>
+
+		</td>
+	</tr>
+	<tr>
+		<td style="padding: 0 18px 15px 18px;">
+			<div style="padding: 10px; background: #FEFFEA; border: 1px solid #E0DCBA; font-family: Verdana, sans-serif; color: #333; font-size: 12px;">
+Already a member? <a href="http://en.facebox.com/eagle09/friends/view=add">Add aditya monu as your friend.</a><br>
+<br>
+Don't know who aditya monu is?  <a href="http://en.facebox.com/eagle09">Visit his profilepage.</a><br>
+<br>
+Do you not wish to receive these e-mails? <a href="http://en.facebox.com/go/nomails/invite/email=-cmFkZXZAdW1pY2guZWR1&code=11060960&i=h7&id=1531345088">Block your e-mail address.</a>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td background="http://static.facebox.com//s/i/email/email_footer.png" style="height: 29px; padding: 3px 0 4px 0; border-top: 3px solid #e00; font-family: Verdana, sans-serif; background-color: #000;">&nbsp;</td>
+	</tr>
+</table>
+
+</body>
+</html>
+--incrowd_6506e2e6636163656626f7892e636f26d05b3743--
+
+
+

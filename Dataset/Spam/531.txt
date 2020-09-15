@@ -1,0 +1,44 @@
+From r  Thu May 31 14:44:11 2007
+Return-Path: <acl-webmaster-errors@UM>
+X-Sieve: CMU Sieve 2.3
+Received-SPF: none (mxus2: 212.53.64.53 is neither permitted nor denied by domain of beatifulflowers.info) client-ip=212.53.64.53; envelope-from=office@beatifulflowers.info; helo=customermail2.easily.co.uk;
+        Thu, 31 May 2007 19:43:32 +0100 (BST)
+Message-ID: <1320.196.220.6.126.1180637012.squirrel@easilymail.co.uk>
+Date: Thu, 31 May 2007 19:43:32 +0100 (BST)
+Subject: Inquiry!
+From: "Patrick Berger" <office@beatifulflowers.info>
+Reply-To: mr_patrick_berger_12@yahoo.com
+User-Agent: SquirrelMail/1.4.6
+MIME-Version: 1.0
+Content-Type: text/plain;charset=iso-8859-15
+Content-Transfer-Encoding: 8bit
+X-Priority: 3 (Normal)
+Importance: Normal
+Status: RO
+
+
+
+
+Dear Sir/Madam,
+
+I am conducting a standard process investigation on behalf of our Bank an
+international banking conglomerate. This investigation involves a client
+and also the circumstances surrounding investments made by this client
+with our
+Bank.
+
+Our client died intestate and nominated no successor in title over the
+investments made with our bank. The essence of this communication with you
+is to request you provide us information/comment on this issue so that I
+can
+use my position in the bank to establish your eligibility to assume status
+of successor in title to the deceased.
+
+You must appreciate that we are constrained from providing you with more
+detailed information at this point.
+
+Please respond to this mail as soon as possible to afford us the
+opportunity to explain further details to you.
+
+Best Regards,
+Patrick Berger.

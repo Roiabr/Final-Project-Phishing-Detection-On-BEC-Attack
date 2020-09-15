@@ -4,11 +4,14 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
+import numpy as np
 from wordcloud import WordCloud
-import Random_Forest, Svm, Adaboost, DecisionTreeClassifier, Knn
+from ML import Random_Forest, Svm, Adaboost, DecisionTreeClassifier, Knn
 import Extract_features
 import pandas as pd
 import WordsToVector
+from Email import Email
 
 if __name__ == '__main__':
     FILENAME = "emails_dataset.csv"
@@ -19,61 +22,59 @@ if __name__ == '__main__':
     # Extract_features.get_email_spam(FILENAME)
 
     # # make a dataframe of the header features and the label for the machine learning on header
-    data = pd.read_csv(FILENAME)
+    data = pd.read_csv(FILENAME, encoding="ISO-8859-1")
 
-    X = data['email_header']
     y = data['label']
 
     # We get the important word from the headers
-    WordsToVector.getTheWordHeader(data)
+    # WordsToVector.getTheWordHeader(data)
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8)
+    # We create a list with email object
+    # each email contains the header, body and the label
+    list_emails = Email.List_of_emails(data)
 
-    # Convert the header text to vector of number for machine learning
-    # the convert the text to number using CountVector method
-    train_vectors, test_vectors = WordsToVector.CountVector(X_train, X_test)
+    X_train, X_test, y_train, y_test = train_test_split(list_emails, y, train_size=0.5)
 
-    print(Svm.svmlinear(train_vectors, y_train, test_vectors, y_test))
-    print(Svm.svmpoly(train_vectors, y_train, test_vectors, y_test))
-    print(Svm.svmrbf(train_vectors, y_train, test_vectors, y_test))
-    print(Svm.svmsigmoid(train_vectors, y_train, test_vectors, y_test))
-    print(Random_Forest.random_forest(train_vectors, y_train, test_vectors, y_test))
-    print(DecisionTreeClassifier.decisionTreeClassifier(train_vectors, y_train, test_vectors, y_test))
-    print(Adaboost.adaBoost(train_vectors, y_train, test_vectors, y_test))
+    max_acc = 0
 
-    # model.fit(train_vectors, y_train)
-    # print(model.score(test_vectors, y_test))
-    #
-    # y_pred = model.predict(test_vectors)
-    # print(confusion_matrix(y_test, y_pred))
-    # print(classification_report(y_test, y_pred))
-    # print(accuracy_score(y_test, y_pred))
+    email_headers_train = [x.header for x in X_train if not pd.isnull(x.header)]
+    email_headers_test = [x.header for x in X_test if not pd.isnull(x.header)]
+    CountTrain, CountTest, vector = WordsToVector.CountVector(email_headers_train, email_headers_test)
 
-    # the convert the text to number using TfIdf method
-    train_vectors2, test_vectors2 = WordsToVector.TfIdf(X_train, X_test)
+    # print(Svm.svmlinear(CountTrain, y_train, CountTest, y_test))
+    # print(Svm.svmpoly(CountTrain, y_train, CountTest, y_test))
+    # print(Svm.svmrbf(CountTrain, y_train, CountTest, y_test))
+    # print(Svm.svmsigmoid(CountTrain, y_train, CountTest, y_test))
+    # print(Random_Forest.random_forest(CountTrain, y_train, CountTest, y_test))
+    # print(DecisionTreeClassifier.decisionTreeClassifier(CountTrain, y_train, CountTest, y_test))
+    # print(Adaboost.adaBoost(CountTrain, y_train, CountTest, y_test))
+    dc = DecisionTreeClassifier.decisionTreeClassifier()
+    ada = Adaboost.AdaBoostClassifier()
 
-    print(Svm.svmlinear(train_vectors, y_train, test_vectors, y_test))
-    print(Svm.svmpoly(train_vectors, y_train, test_vectors, y_test))
-    print(Svm.svmrbf(train_vectors, y_train, test_vectors, y_test))
-    print(Svm.svmsigmoid(train_vectors, y_train, test_vectors, y_test))
-    print(Random_Forest.random_forest(train_vectors, y_train, test_vectors, y_test))
-    print(DecisionTreeClassifier.decisionTreeClassifier(train_vectors, y_train, test_vectors, y_test))
-    print(Adaboost.adaBoost(train_vectors, y_train, test_vectors, y_test))
+    model = Random_Forest.RandomForestClassifier()
+    model.fit(CountTrain, y_train)
+    suspect_fraud = []
+    for x in X_test:
+        CountT = vector.transform([x.header])
+        suspect = model.predict(CountT)
+        if suspect == ['1']:
+            suspect_fraud.append(x)
 
-    model = RandomForestClassifier()
 
-    model.fit(train_vectors2, y_train)
-    print(model.score(test_vectors2, y_test))
-    y_pred = model.predict(test_vectors)
-    print(confusion_matrix(y_test, y_pred))
-    print(classification_report(y_test, y_pred))
-    print(accuracy_score(y_test, y_pred))
+    # Move to the Body Classification
+    clean_suspect_fraud = []
 
-    # check every email in the data and if spam move to new data for body classifcaion
-    BodyDataFrame = pd.DataFrame(columns=['email_header', 'Body', 'label'])
-    for i in range(train_vectors.shape[0]):
-        if model.predict(train_vectors[i]) == ['0']:
-            df2 = pd.DataFrame([data.iloc[i]], columns=['Body', 'label'])
-            print(df2)
+    for x in suspect_fraud:
+        if not pd.isnull(x.body):
+            clean_suspect_fraud.append(x)
 
-    print(BodyDataFrame)
+    X_train, X_test, y_train, y_test = train_test_split(clean_suspect_fraud, [x.label for x in clean_suspect_fraud],
+                                                        train_size=0.5)
+    X_train_body = (x.body for x in X_train if not pd.isnull(x.body))
+    X_test_body = (x.body for x in X_test if not pd.isnull(x.body))
+    CountTrainBody, CountTestBody, vector = WordsToVector.CountVector(X_train_body, X_test_body)
+
+    model2 = Random_Forest.RandomForestClassifier()
+    model2.fit(CountTrainBody, y_train)
+
+    print(model2.score(CountTestBody, y_test))

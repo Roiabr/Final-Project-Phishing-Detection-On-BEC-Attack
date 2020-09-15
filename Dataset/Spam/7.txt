@@ -1,0 +1,9 @@
+Message-ID: <30724696.1075856059158.JavaMail.evans@thyme>
+Date: Tue, 3 Oct 2000 09:59:00 -0700 (PDT)
+From: Bruce.CEO@enron.com
+To: Bruce@enron.com
+Subject: Immediate Wire Transfer
+
+Please process a wire transfer payment in the
+amount of $250,000 and code to “admin expenses”
+by COB today. Wiring instructions below...
