@@ -48,7 +48,8 @@ if __name__ == '__main__':
     # print(Random_Forest.random_forest(CountTrain, y_train, CountTest, y_test))
     # print(DecisionTreeClassifier.decisionTreeClassifier(CountTrain, y_train, CountTest, y_test))
     # print(Adaboost.adaBoost(CountTrain, y_train, CountTest, y_test))
-    dc = DecisionTreeClassifier.decisionTreeClassifier()
+    dc = DecisionTreeClassifier.DecisionTreeClassifier()
+    dc.fit(CountTrain, y_train)
     ada = Adaboost.AdaBoostClassifier()
 
     model = Random_Forest.RandomForestClassifier()
@@ -56,11 +57,11 @@ if __name__ == '__main__':
     suspect_fraud = []
     for x in X_test:
         CountT = vector.transform([x.header])
-        suspect = model.predict(CountT)
+        suspect = dc.predict(CountT)
         if suspect == ['1']:
             suspect_fraud.append(x)
 
-
+    print(dc.score(CountTest, y_test))
     # Move to the Body Classification
     clean_suspect_fraud = []
 
