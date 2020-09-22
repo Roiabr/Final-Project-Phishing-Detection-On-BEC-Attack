@@ -24,7 +24,7 @@ def get_email_ham(FILENAME):
 
 def get_email_spam(FILENAME):
     spam = 1
-    for subdir, dirs, files in os.walk('Spam'):
+    for subdir, dirs, files in os.walk('Dataset/Spam'):
         for filename in files:
             filepath = subdir + os.sep + filename
             csv_content = parser_email(filepath, spam)

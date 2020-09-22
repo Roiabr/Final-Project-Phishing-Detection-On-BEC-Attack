@@ -1,27 +1,12 @@
 from sklearn.neighbors import KNeighborsClassifier
-from scipy.stats import wasserstein_distance
-import Code.Draw
 
 
-def knn(trainX, trainY, testX, testY, images, index, numNeigh=3):
-    # n_jobs means number of parallel jobs to run. -1 meansusing all processors
-    model = KNeighborsClassifier(n_neighbors=numNeigh, n_jobs=-1)
-    model.fit(trainX, trainY)
-    acc = model.score(testX, testY) * 100
-    Code.Draw.drawPredict(model, testX, testY, images, index)
-    return acc
-
-
-# Earth mover:
-def EMD(x, y):
-    return wasserstein_distance(x, y)
-
-
-def knnEMD(trainX, trainY, testX, testY, images, index, numNeigh=3):
-    # n_jobs means number of parallel jobs to run. -1 meansusing all processors
-    model = KNeighborsClassifier(n_neighbors=numNeigh, algorithm='ball_tree',
-                                 metric=EMD, metric_params=None, n_jobs=-1)
-    model.fit(trainX, trainY)
-    acc = model.score(testX, testY) * 100
-    Code.Draw.drawPredict(model, testX, testY, images, index)
-    return acc
+def knn(CountTrainTf, CountTestTf, y_train, y_test, flag):
+    knn = KNeighborsClassifier(n_neighbors=3)
+    knn.fit(CountTrainTf, y_train)
+    knnScore = knn.score(CountTestTf, y_test)
+    if flag is 0:
+        print("Knn on header Score: ", knnScore)
+    else:
+        print("Knn on Body Score: ", knnScore)
+    return knnScore, knn
