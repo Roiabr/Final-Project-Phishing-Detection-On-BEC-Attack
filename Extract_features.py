@@ -2,6 +2,20 @@ import csv
 import io
 import os
 import mailparser
+import pandas as pd
+
+def Create_the_dataSet():
+    FILENAME = "Dataset/emails_dataset.csv"
+    fields = ['email_header', 'Body', 'label']
+    save_output(FILENAME, fields)
+    # read all emails,parser the email to a csv file
+    get_email_ham(FILENAME)
+    get_email_spam(FILENAME)
+
+    # # make a dataframe of the header features and the label for the machine learning on header
+    data = pd.read_csv(FILENAME, encoding="ISO-8859-1")
+    data.dropna(axis=0, how='any')
+    return data
 
 
 def save_output(filename, csv_content):
@@ -32,7 +46,7 @@ def get_email_spam(FILENAME):
             save_output(FILENAME, csv_content)
 
 
-def parser_email(filepath,flag):
+def parser_email(filepath, flag):
 
     mail = mailparser.parse_from_file(filepath)
 

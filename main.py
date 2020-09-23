@@ -10,19 +10,23 @@ import pandas as pd
 import WordsToVector
 from Email import Email
 
+
+def SaveTheModel(TypeModel):
+    if TypeModel is 'header':
+        joblib.dump(RF, 'Saved_Model/Random_Forest_Model_Header')
+        joblib.dump(DT, 'Saved_Model/Decision_Tree_Model_Header')
+        joblib.dump(Knn, 'Saved_Model/Knn_Model_Header')
+        joblib.dump(Svm, 'Saved_Model/Svm_Model_Header')
+    else:
+        joblib.dump(RFBody, 'Saved_Model/Random_Forest_Model_Body')
+        joblib.dump(DTBody, 'Saved_Model/Decision_Tree_Model_Body')
+
+
 if __name__ == '__main__':
     numpy.set_printoptions(threshold=sys.maxsize)
 
-    FILENAME = "emails_dataset.csv"
-    fields = ['email_header', 'Body', 'label']
-    Extract_features.save_output(FILENAME, fields)
-    # read all emails,parser the email to a csv file
-    Extract_features.get_email_ham(FILENAME)
-    Extract_features.get_email_spam(FILENAME)
+    data = Extract_features.Create_the_dataSet()
 
-    # # make a dataframe of the header features and the label for the machine learning on header
-    data = pd.read_csv(FILENAME, encoding="ISO-8859-1")
-    data.dropna(axis=0, how='any')
     y = data['label']
 
     # We get the important word from the headers
@@ -72,10 +76,7 @@ if __name__ == '__main__':
     print("The best Model is: ", Model, "and the best Score is: ", maxModel)
 
     # Save the model for future predictions
-    joblib.dump(RF, 'Saved_Model/Random_Forest_Model_Header')
-    joblib.dump(DT, 'Saved_Model/Decision_Tree_Model_Header')
-    joblib.dump(Knn, 'Saved_Model/Knn_Model_Header')
-    joblib.dump(Svm, 'Saved_Model/Svm_Model_Header')
+    SaveTheModel('header')
 
     suspect_fraud = []
     for x in X_test:
@@ -120,5 +121,7 @@ if __name__ == '__main__':
     # if SvmScoreBody > maxModelBody:
     #     maxModelBody = SvmScoreBody
     #     ModelBody = SvmBody
+
+    SaveTheModel('body')
 
     print("The best Model is: ", ModelBody, "and the best Score is: ", maxModelBody)
