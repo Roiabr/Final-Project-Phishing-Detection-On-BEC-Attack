@@ -19,11 +19,11 @@ def home():
 def upload_file():
     if request.method == 'POST':
         f = request.files['file']
-        f.save(os.path.join('../Dataset/Web_Emails', secure_filename(f.filename)))
+        f.save(os.path.join('Dataset/Web_Emails', secure_filename(f.filename)))
         email = getWebEmails()
         list_body = [email[1]]
         train_vectors = CountVectorWeb(list_body)
-        model = joblib.load('../Saved_Model/Body/Random_Forest_Model_Body')
+        model = joblib.load('Saved_Model/Body/Random_Forest_Model_Body')
         predict = model.predict(train_vectors)
         print(predict)
         if predict == ['0']:
