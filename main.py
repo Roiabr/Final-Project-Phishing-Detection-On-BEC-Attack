@@ -11,13 +11,13 @@ from Email import Email
 
 def SaveTheModel(TypeModel):
     if TypeModel is 'header':
-        joblib.dump(RF, 'Saved_Model/Random_Forest_Model_Header')
-        joblib.dump(DT, 'Saved_Model/Decision_Tree_Model_Header')
-        joblib.dump(Knn, 'Saved_Model/Knn_Model_Header')
-        joblib.dump(Svm, 'Saved_Model/Svm_Model_Header')
+        joblib.dump(RF, 'Saved_Model/Header/Random_Forest_Model_Header')
+        joblib.dump(DT, 'Saved_Model/Header/Decision_Tree_Model_Header')
+        joblib.dump(Knn, 'Saved_Model/Header/Knn_Model_Header')
+        joblib.dump(Svm, 'Saved_Model/Header/Svm_Model_Header')
     else:
-        joblib.dump(RFBody, 'Saved_Model/Random_Forest_Model_Body')
-        joblib.dump(DTBody, 'Saved_Model/Decision_Tree_Model_Body')
+        joblib.dump(RFBody, 'Saved_Model/Body/Random_Forest_Model_Body')
+        joblib.dump(DTBody, 'Saved_Model/Body/Decision_Tree_Model_Body')
 
 
 if __name__ == '__main__':
