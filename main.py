@@ -1,8 +1,6 @@
 import sys
-
 import joblib
 import numpy
-
 from sklearn.model_selection import train_test_split
 from ML import Random_Forest, DecisionTreeClassifier, Knn, Svm
 import Extract_features
@@ -24,7 +22,7 @@ def SaveTheModel(TypeModel):
 
 if __name__ == '__main__':
     numpy.set_printoptions(threshold=sys.maxsize)
-
+    # The first  part is to create the dataset
     data = Extract_features.Create_the_dataSet()
 
     y = data['label']
@@ -81,8 +79,8 @@ if __name__ == '__main__':
     suspect_fraud = []
     for x in X_test:
         CountT = vector.transform([x.header])
-        suspect = int(Model.predict(CountT))
-        if suspect == 1:
+        suspect = Model.predict(CountT)
+        if suspect == ['1']:
             suspect_fraud.append(x)
 
     # Move to the Body Classification
@@ -125,3 +123,4 @@ if __name__ == '__main__':
     SaveTheModel('body')
 
     print("The best Model is: ", ModelBody, "and the best Score is: ", maxModelBody)
+

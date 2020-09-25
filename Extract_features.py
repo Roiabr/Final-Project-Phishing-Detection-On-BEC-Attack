@@ -4,13 +4,14 @@ import os
 import mailparser
 import pandas as pd
 
+
 def Create_the_dataSet():
     FILENAME = "Dataset/emails_dataset.csv"
     fields = ['email_header', 'Body', 'label']
     save_output(FILENAME, fields)
     # read all emails,parser the email to a csv file
-    get_email_ham(FILENAME)
-    get_email_spam(FILENAME)
+    # get_email_ham(FILENAME)
+    # get_email_spam(FILENAME)
 
     # # make a dataframe of the header features and the label for the machine learning on header
     data = pd.read_csv(FILENAME, encoding="ISO-8859-1")
@@ -46,8 +47,15 @@ def get_email_spam(FILENAME):
             save_output(FILENAME, csv_content)
 
 
-def parser_email(filepath, flag):
+def getWebEmails():
+    for subdir, dirs, files in os.walk('Dataset/Web_Emails'):
+        for filename in files:
+            filepath = subdir + os.sep + filename
+            csv_content = parser_email(filepath)
+            print(csv_content)
+            return csv_content
 
+def parser_email(filepath, flag=1):
     mail = mailparser.parse_from_file(filepath)
 
     email_header = mail.headers
