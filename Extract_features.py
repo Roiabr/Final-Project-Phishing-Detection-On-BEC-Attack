@@ -33,7 +33,6 @@ def get_email_ham(FILENAME):
         for filename in files:
             filepath = subdir + os.sep + filename
             csv_content = parser_email(filepath, ham)
-            print(csv_content)
             save_output(FILENAME, csv_content)
 
 
@@ -43,14 +42,12 @@ def get_email_spam(FILENAME):
         for filename in files:
             filepath = subdir + os.sep + filename
             csv_content = parser_email(filepath, spam)
-            print(csv_content)
+
             save_output(FILENAME, csv_content)
 
 
 def getWebEmails(filepath):
-    print(filepath)
     csv_content = parser_email(filepath)
-    print(csv_content)
     return csv_content
 
 

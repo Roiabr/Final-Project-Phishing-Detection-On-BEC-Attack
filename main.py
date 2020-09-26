@@ -28,7 +28,7 @@ if __name__ == '__main__':
     y = data['label']
 
     # We get the important word from the headers
-    # WordsToVector.getTheWordHeader(data)
+    WordsToVector.getTheWordHeader(data)
 
     # We create a list with email object
     # each email contains the header, body and the label
@@ -76,6 +76,7 @@ if __name__ == '__main__':
     # Save the model for future predictions
     SaveTheModel('header')
 
+    # Move to the Body Classification
     suspect_fraud = []
     for x in X_test:
         CountT = vector.transform([x.header])
@@ -83,13 +84,13 @@ if __name__ == '__main__':
         if suspect == ['1']:
             suspect_fraud.append(x)
 
-    # Move to the Body Classification
     clean_suspect_fraud = []
 
     for x in suspect_fraud:
         if not pd.isnull(x.body):
             clean_suspect_fraud.append(x)
 
+    # Split the dataset for 80% train and 20% test
     X_train, X_test, y_train, y_test = train_test_split(clean_suspect_fraud, [x.label for x in clean_suspect_fraud],
                                                         train_size=0.8)
     X_train_body = (x.body for x in X_train if not pd.isnull(x.body))
@@ -99,6 +100,7 @@ if __name__ == '__main__':
 
     maxModelBody = 0
     ModelBody = ""
+
     RFScoreBody, RFBody = Random_Forest.random_forest(CountTrainBody, CountTestBody, y_train, y_test, 1)
     if RFScoreBody > maxModelBody:
         maxModelBody = RFScoreBody
@@ -123,3 +125,4 @@ if __name__ == '__main__':
     SaveTheModel('body')
 
     print("The best Model is: ", ModelBody, "and the best Score is: ", maxModelBody)
+
