@@ -63,5 +63,3 @@ def CountVectorWeb(email, numOfF):
     vectorizer = TfidfVectorizer(max_features=numOfF)
     train_vectors = vectorizer.fit_transform(email)
     return train_vectors
-
-
