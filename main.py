@@ -95,7 +95,7 @@ if __name__ == '__main__':
     X_train_body = (x.body for x in X_train if not pd.isnull(x.body))
     X_test_body = (x.body for x in X_test if not pd.isnull(x.body))
 
-    CountTrainBody, CountTestBody, vector = WordsToVector.CountVector(X_train_body, X_test_body)
+    CountTrainBody, CountTestBody, vector = WordsToVector.TfIdfBody(X_train_body, X_test_body)
 
     maxModelBody = 0
     ModelBody = ""
@@ -123,4 +123,3 @@ if __name__ == '__main__':
     SaveTheModel('body')
 
     print("The best Model is: ", ModelBody, "and the best Score is: ", maxModelBody)
-
