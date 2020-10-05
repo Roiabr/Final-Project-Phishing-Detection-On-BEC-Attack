@@ -16,7 +16,22 @@ def getTheWordHeader(data):
     stop_words = set(stopwords.words('english'))
     stop_words.update(("<", ">", "@", ".", ".com", ",", ":", ";", "''"))
     tokens = [w for w in tokens if not w in stop_words]
-    print(tokens)
+    wordcloud = WordCloud().generate_from_frequencies(frequency_dist)
+    plt.imshow(wordcloud)
+    plt.axis("off")
+    plt.show()
+
+
+def getTheWordBody(data):
+    body = data.Body.str.cat(sep=' ')
+    # function to split text into word
+    tokens = word_tokenize(body)
+    vocabulary = set(tokens)
+    frequency_dist = nltk.FreqDist(tokens)
+    sorted(frequency_dist, key=frequency_dist.__getitem__, reverse=True)[0:50]
+    stop_words = set(stopwords.words('english'))
+    stop_words.update(("<", ">", "@", ".", ".com", ",", ":", ";", "''"))
+    tokens = [w for w in tokens if not w in stop_words]
     wordcloud = WordCloud().generate_from_frequencies(frequency_dist)
     plt.imshow(wordcloud)
     plt.axis("off")

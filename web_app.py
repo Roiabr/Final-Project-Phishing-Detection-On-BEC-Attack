@@ -7,7 +7,7 @@ import joblib
 
 UPLOAD_FOLDER = 'Dataset/Web_Emails'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
-app = Flask(__name__, static_folder="docs", template_folder='docs')
+app = Flask(__name__, static_folder="Web_app", template_folder='Web_app')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')

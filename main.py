@@ -71,14 +71,21 @@ if __name__ == '__main__':
         maxModel = SvmScore
         Model = Svm
 
-    print("The best Model is: ", Model, "and the best Score is: ", maxModel)
+    print("The best Model on Header is: ", Model, "and the best Score is: ", maxModel)
 
     # Save the model for future predictions
     SaveTheModel('header')
 
     # Move to the Body Classification
     suspect_fraud = []
+
     for x in X_test:
+        CountT = vector.transform([x.header])
+        suspect = Model.predict(CountT)
+        if suspect == ['1']:
+            suspect_fraud.append(x)
+
+    for x in X_train:
         CountT = vector.transform([x.header])
         suspect = Model.predict(CountT)
         if suspect == ['1']:
@@ -89,6 +96,8 @@ if __name__ == '__main__':
     for x in suspect_fraud:
         if not pd.isnull(x.body):
             clean_suspect_fraud.append(x)
+
+    WordsToVector.getTheWordBody(data)
 
     # Split the dataset for 80% train and 20% test
     X_train, X_test, y_train, y_test = train_test_split(clean_suspect_fraud, [x.label for x in clean_suspect_fraud],
@@ -124,5 +133,4 @@ if __name__ == '__main__':
 
     SaveTheModel('body')
 
-    print("The best Model is: ", ModelBody, "and the best Score is: ", maxModelBody)
-
+    print("The best Model on Body is: ", ModelBody, "and the best Score is: ", maxModelBody)

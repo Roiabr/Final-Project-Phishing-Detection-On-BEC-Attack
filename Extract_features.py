@@ -10,8 +10,8 @@ def Create_the_dataSet():
     fields = ['email_header', 'Body', 'label']
     save_output(FILENAME, fields)
     # read all emails,parser the email to a csv file
-    get_email_ham(FILENAME)
-    get_email_spam(FILENAME)
+    # get_email_ham(FILENAME)
+    # get_email_spam(FILENAME)
 
     # # make a dataframe of the header features and the label for the machine learning on header
     data = pd.read_csv(FILENAME, encoding="ISO-8859-1")
