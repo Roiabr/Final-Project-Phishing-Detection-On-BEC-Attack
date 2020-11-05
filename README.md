@@ -27,7 +27,7 @@ We found out that there is a lack of codes for BEC attack prevention, so this wo
 * wordcloud (pip install wordcloud)
 
 ## Implementation:
-For a detailed explanation of the work process, Data-set, and types of machines, you can read the article [here](https://docs.google.com/document/d/13d4p6SGXKB96_u5QlkOHyfn81eUWCDIvAZLAWbvNinI/edit)
+For a detailed explanation of the work process, Data-set, and types of machines, you can read the article [here](https://docs.google.com/document/d/1XyYiHxBZC1AGTf6XjY5Gbd6azJP6QDRHf4FKl3N2Q6g/edit)
 
 ## Project Poster 
 ![Poster Ariel Projects 2020 ](https://user-images.githubusercontent.com/44756354/95667145-b1a8ca00-0b6a-11eb-8aa3-54924b9ad320.jpg)
